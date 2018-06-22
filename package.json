@@ -6,6 +6,11 @@
   "scripts": {
     "test": "jest"
   },
+  "jest": {
+    "globals": {
+      "__": "Fill this in so that the test is passing"
+    }
+  },
   "author": "Martin",
   "license": "MIT",
   "devDependencies": {
