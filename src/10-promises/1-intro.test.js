@@ -4,7 +4,7 @@
 const fetch = require('node-fetch');
 const serve = require('./serve');
 
-describe('Promises', function() {
+xdescribe('Promises', function() {
   const port = 3001;
   serve(port);
   const get = url =>
