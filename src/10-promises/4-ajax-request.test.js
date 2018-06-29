@@ -20,6 +20,26 @@ describe('Creating promises - timeout', function() {
     );
   });
 
+  test('should understand chaining', function() {
+
+    var leaders = [{ id: 4, name: 'Myamoto', age: 32 }, { id: 6, name: 'blabla', age: 42 }];
+
+    var leaderboardPromise = new Promise(function(resolve, reject) {
+      setTimeout(function() {
+        resolve(leaders) ;
+      }, 100);
+    });
+
+    var playerPromise = new Promise(function(resolve, reject) {
+      setTimeout(function() {
+        resolve(leaders[0]);
+      }, 100);
+    });
+
+    return leaderboardPromise.then(leaders => playerPromise).then(player => expect(player).toEqual({ id: 4, name: 'Myamoto', age: 32 }));
+
+  });
+
   test('should understand all promises', function(done) {
 
     var promise1 = new Promise(function(resolve, reject) {
